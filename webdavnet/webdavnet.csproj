@@ -55,4 +55,10 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebClient\WebClient.csproj">
+      <Project>{47C1D318-90F3-44DC-8307-9A4ADC556E2E}</Project>
+      <Name>WebClient</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
