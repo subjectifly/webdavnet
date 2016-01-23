@@ -343,7 +343,7 @@ namespace WebDav
 			try
             {
                 webResponse = client.Execute(webRequest);
-				listResource = ExtractResources(webResponse.Content.ReadAsStreamAsync().Result, uri.AbsolutePath);
+				listResource = ExtractResources(webResponse.Content.ReadAsStreamAsync().Result, uri.AbsolutePath, string.Format("{0}://{1}", uri.Scheme, uri.Host));
             }
             catch (Exception e)
             {
@@ -498,7 +498,7 @@ namespace WebDav
             return webRequest;
         }
 
-		private static List<WebDavResource> ExtractResources(Stream strm, string rootpath)
+		private static List<WebDavResource> ExtractResources(Stream strm, string rootpath, string fullpath)
         {
             List<WebDavResource> webDavResources = new List<WebDavResource>();
 
@@ -534,6 +534,8 @@ namespace WebDav
 
 						if (Uri.TryCreate(node.Value, UriKind.Absolute, out href))
 							resource.Uri = href;
+						else if (Uri.TryCreate(string.Format("{0}{1}",fullpath,node.Value), UriKind.Absolute, out href))
+							resource.Uri = href;
 					}
 
 					node = prop.Element(XName.Get("getcontentlength", "DAV:"));
@@ -568,7 +570,7 @@ namespace WebDav
 					if (node != null)
 						resource.QutoaAvailable = long.Parse(node.Value);
 
-					if (resource.Name == null) {
+					if (resource.Name == null && resource.Uri != null) {
 						if (resource.IsDirectory)
 							resource.Name = resource.Uri.Segments.Last().TrimEnd(new char[]{'/'});
 						else
