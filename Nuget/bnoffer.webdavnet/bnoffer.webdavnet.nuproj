@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}</ProjectGuid>
+    <Description>WebDAVNet is a client library for interacting with WebDAV written in C#</Description>
+    <PackageId>bnoffer.webdavnet</PackageId>
+    <PackageVersion>1.0.2</PackageVersion>
+    <Authors>tloehlein, ChristianSchaefer, bnoffer</Authors>
+    <DevelopmentDependency>false</DevelopmentDependency>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>bnoffer.webdavnet</RootNamespace>
+    <UsePartialTypes>false</UsePartialTypes>
+    <AssemblyName>bnoffer.webdavnet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ReleaseVersion>0.3</ReleaseVersion>
+    <Owners>bnoffer</Owners>
+    <Copyright>©2017 Bastian Noffer</Copyright>
+    <PackageTags>WebDAV</PackageTags>
+    <Title>WebDAVNet</Title>
+    <Summary>WebDAVNet is a client library for interacting with WebDAV written in C#</Summary>
+    <PackageProjectUrl>https://github.com/bnoffer/webdavnet</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/bnoffer/owncloud-sharp/master/Nuget/nuget.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/bnoffer/webdavnet/blob/master/LICENSE.md</PackageLicenseUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\Debug</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="readme.txt">
+      <IncludeInPackage>true</IncludeInPackage>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging">
+      <Version>0.2.2</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\webdavnet\webdavnet\webdavnet.csproj">
+      <Project>{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}</Project>
+      <Name>webdavnet</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets')" />
+</Project>

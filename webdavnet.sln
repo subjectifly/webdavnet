@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "WebClient\WebClient.csproj", "{47C1D318-90F3-44DC-8307-9A4ADC556E2E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{F76C24E2-AF09-429F-94D0-DA72C5416CC3}"
+EndProject
+Project("{5DD5E4FA-CB73-4610-85AB-557B54E96AA9}") = "bnoffer.webdavnet", "Nuget\bnoffer.webdavnet\bnoffer.webdavnet.nuproj", "{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,8 +29,13 @@ Global
 		{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9} = {F76C24E2-AF09-429F-94D0-DA72C5416CC3}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = " WebDAVNet is a client library for interacting with WebDAV written in C#."
