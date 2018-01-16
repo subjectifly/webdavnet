@@ -7,7 +7,7 @@
     <ProjectGuid>{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}</ProjectGuid>
     <Description>WebDAVNet is a client library for interacting with WebDAV written in C#</Description>
     <PackageId>bnoffer.webdavnet</PackageId>
-    <PackageVersion>1.0.3</PackageVersion>
+    <PackageVersion>1.0.4</PackageVersion>
     <Authors>tloehlein, ChristianSchaefer, bnoffer</Authors>
     <DevelopmentDependency>false</DevelopmentDependency>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -25,7 +25,7 @@
     <PackageProjectUrl>https://github.com/bnoffer/webdavnet</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/bnoffer/owncloud-sharp/master/Nuget/nuget.png</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/bnoffer/webdavnet/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageReleaseNotes>v.1.0.3: Library now uses PCL profile 111. For ownCloud# 0.3.0 use version 1.0.2.</PackageReleaseNotes>
+    <PackageReleaseNotes>v.1.0.4: Library now uses PCL profile 111. For ownCloud# 0.3.0 use version 1.0.2.</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,7 +49,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\webdavnet\webdavnet\webdavnet.csproj">
+    <ProjectReference Include="..\..\webdavnet\webdavnet.csproj">
       <Project>{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}</Project>
       <Name>webdavnet</Name>
     </ProjectReference>
