@@ -49,6 +49,23 @@ namespace WebDav
 		}
 
         /// <summary>
+        /// Initialize a new instance of the <see cref="WebDavManager"/> class with authType
+        /// </summary>
+        public WebDavManager(AuthType authType, string authName, string authValue)
+        {
+            if (authType == AuthType.Basic)
+            {
+                client = new WebClient.WebClient();
+            }
+            else
+            {
+                client = new WebClient.WebClient(false);
+                client.Credentials = new NetworkCredential(authName, authValue);
+                client.AuthorizationType = authType.ToString();
+            }
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="WebDavManager"/> class.
         /// </summary>
         /// <param name="credential">The credential.</param>
@@ -332,13 +349,27 @@ namespace WebDav
         /// <returns></returns>
         public List<WebDavResource> List(Uri uri)
         {
+            return List(uri, 1);
+        }
+
+        /// <summary>
+        /// Lists all resources on the specified Uri.
+        /// </summary>
+        /// <param name="uri">The Uri.</param>
+        /// <param name="folderDepth">get the child folder listing</param>
+        /// <returns></returns>
+        public List<WebDavResource> List(Uri uri, int folderDepth)
+        {
         	List<WebDavResource> listResource;
         	
         	HttpRequestMessage webRequest = GetBaseRequest(uri, WebMethod.PropFind);
             HttpResponseMessage webResponse;
-        	
-        	// Retrieve only the requested folder
-        	webRequest.Headers.Add("Depth", "1");
+
+            // Retrieve only the requested folder
+            if (folderDepth >= 1)
+            {
+                webRequest.Headers.Add("Depth", folderDepth.ToString());
+            }
         	
 			try
             {
@@ -489,8 +520,14 @@ namespace WebDav
             // Set default headers
             webRequest.Headers.Add("Pragma", "no-cache");
 
-			// Set the request timeout
-			if (Timeout < 1)
+            // Add authorization headers here
+            if (Credential != null && Credential.AuthenticationType == AuthType.Bearer)
+            {
+                webRequest.Headers.Add("Authorization", Credential.AuthenticationType.ToString() + " " + this.Credential.Password);
+            }
+
+            // Set the request timeout
+            if (Timeout < 1)
 				Timeout = 300000; // At least 30 Seconds
 
 			client.Timeout = new TimeSpan (0, 0, 0, 0, Timeout);

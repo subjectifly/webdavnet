@@ -36,6 +36,10 @@ namespace WebDav
         /// <summary>
         /// Negotiate the authentication between Client and Server.
         /// </summary>
-		Negotiate
+		Negotiate,
+        /// <summary>
+        /// Negotiate using bearer Tokens
+        /// </summary>
+        Bearer
 	}
 }
