@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webdavnet", "webdavnet\webdavnet.csproj", "{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webdavnet", "webdavnet\webdavnet.csproj", "{06B59D1A-20FE-4F4C-8C5E-C10E163270AA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8542EC68-AD9A-49A0-857B-7D892649F419}"
 	ProjectSection(SolutionItems) = preProject
@@ -9,11 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "WebClient\WebClient.csproj", "{47C1D318-90F3-44DC-8307-9A4ADC556E2E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{F76C24E2-AF09-429F-94D0-DA72C5416CC3}"
-EndProject
-Project("{5DD5E4FA-CB73-4610-85AB-557B54E96AA9}") = "bnoffer.webdavnet", "Nuget\bnoffer.webdavnet\bnoffer.webdavnet.nuproj", "{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "WebClient\WebClient.csproj", "{427AFB0C-50A6-4481-BCAC-9629789FCC72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,21 +19,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{47C1D318-90F3-44DC-8307-9A4ADC556E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47C1D318-90F3-44DC-8307-9A4ADC556E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47C1D318-90F3-44DC-8307-9A4ADC556E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47C1D318-90F3-44DC-8307-9A4ADC556E2E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AD0BDDE-D9AF-49F8-912C-4B6970CBE1BA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B59D1A-20FE-4F4C-8C5E-C10E163270AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B59D1A-20FE-4F4C-8C5E-C10E163270AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B59D1A-20FE-4F4C-8C5E-C10E163270AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B59D1A-20FE-4F4C-8C5E-C10E163270AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{427AFB0C-50A6-4481-BCAC-9629789FCC72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{427AFB0C-50A6-4481-BCAC-9629789FCC72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{427AFB0C-50A6-4481-BCAC-9629789FCC72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{427AFB0C-50A6-4481-BCAC-9629789FCC72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{F70E8C75-3D67-42D6-8DBB-1D5AA5EBBEF9} = {F76C24E2-AF09-429F-94D0-DA72C5416CC3}
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {243D8D2B-44E3-43A7-A677-33897B8B7C9D}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = " WebDAVNet is a client library for interacting with WebDAV written in C#."
