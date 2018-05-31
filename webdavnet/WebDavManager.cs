@@ -49,13 +49,15 @@ namespace WebDav
 		}
 
         /// <summary>
-        /// Initialize a new instance of the <see cref="WebDavManager"/> class with authType
-        /// </summary>
+        /// Initialize a new instance of the <see cref="WebDavManager"/> class with authType 
+        /// </summary> 
         public WebDavManager(AuthType authType, string authName, string authValue)
         {
             if (authType == AuthType.Basic)
             {
                 client = new WebClient.WebClient();
+                client.Credentials = new NetworkCredential(authName, authValue);
+                client.AuthorizationType = authType.ToString();
             }
             else
             {
@@ -65,7 +67,7 @@ namespace WebDav
             }
         }
 
-        /// <summary>
+        /// <summary> 
         /// Initializes a new instance of the <see cref="WebDavManager"/> class.
         /// </summary>
         /// <param name="credential">The credential.</param>
@@ -446,7 +448,7 @@ namespace WebDav
         /// </summary>
         /// <param name="url">The Url.</param>
 		/// <returns>File contents.</returns>
-        public Stream DownloadFile(string url)
+        public byte[] DownloadFile(string url)
         {
             return DownloadFile(new Uri(url));
         }
@@ -456,12 +458,12 @@ namespace WebDav
         /// </summary>
         /// <param name="uri">The Uri.</param>
 		/// <returns>File contents.</returns>
-        public Stream DownloadFile(Uri uri)
+        public byte[] DownloadFile(Uri uri)
         {
             HttpRequestMessage webRequest = GetBaseRequest(uri, WebMethod.Get);
             HttpResponseMessage webResponse;
 
-			MemoryStream remoteStream = new MemoryStream();
+            byte[] remoteStream = null;
 
             try
             {
@@ -486,7 +488,7 @@ namespace WebDav
             try
             {
                 // Get the stream object of the response
-				webResponse.Content.ReadAsStreamAsync().Result.CopyTo(remoteStream);
+                remoteStream = webResponse.Content.ReadAsByteArrayAsync().Result;
             }
             catch (Exception e)
             {
@@ -520,10 +522,19 @@ namespace WebDav
             // Set default headers
             webRequest.Headers.Add("Pragma", "no-cache");
 
-            // Add authorization headers here
-            if (Credential != null && Credential.AuthenticationType == AuthType.Bearer)
+            // Add authorization headers here 
+            if (Credential != null)
             {
-                webRequest.Headers.Add("Authorization", Credential.AuthenticationType.ToString() + " " + this.Credential.Password);
+                switch (Credential.AuthenticationType)
+                {
+                    case AuthType.Bearer:
+                        webRequest.Headers.Add("Authorization", Credential.AuthenticationType.ToString() + " " + this.Credential.Password);
+                        break;
+                    case AuthType.Basic:
+                        var cred = System.Text.Encoding.UTF8.GetBytes(Credential.UserName + ":" + Credential.Password);
+                        webRequest.Headers.Add("Authorization", Credential.AuthenticationType.ToString() + " " + System.Convert.ToBase64String(cred));
+                        break;
+                }
             }
 
             // Set the request timeout
