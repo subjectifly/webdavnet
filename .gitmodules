@@ -1,4 +1,4 @@
 [submodule "WebClient"]
 	path = WebClient
-	url = https://github.com/bnoffer/webclient.git
+	url = https://github.com/subjectifly/webclient.git
 	branch = master
